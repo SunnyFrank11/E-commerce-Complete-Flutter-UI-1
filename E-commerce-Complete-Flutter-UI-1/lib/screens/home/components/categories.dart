@@ -139,6 +139,7 @@ class HotDealsProducts extends StatelessWidget {
                   Navigator.pushNamed(context, ProductsScreen.routeName);
                 },
               ),
+              SizedBox(width: 20)
             ],
           ),
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 
 import '../constants.dart';
 import '../models/Product.dart';
@@ -19,6 +19,15 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String formatCurrency(double amount,
+        {String locale = 'en_NG', String symbol = '₦'}) {
+      final NumberFormat currencyFormat = NumberFormat.simpleCurrency(
+        locale: locale,
+        name: symbol,
+      );
+      return currencyFormat.format(amount);
+    }
+
     return SizedBox(
       width: width,
       child: GestureDetector(
@@ -46,37 +55,36 @@ class ProductCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "\$${product.price}",
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: kPrimaryColor,
+                RichText(
+                    text: TextSpan(
+                  text: formatCurrency(product.price),
+                  style: TextStyle(
+                    color: Colors.green,
                   ),
-                ),
-                InkWell(
-                  borderRadius: BorderRadius.circular(50),
-                  onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.all(6),
-                    height: 24,
-                    width: 24,
-                    decoration: BoxDecoration(
-                      color: product.isFavourite
-                          ? kPrimaryColor.withOpacity(0.15)
-                          : kSecondaryColor.withOpacity(0.1),
-                      shape: BoxShape.circle,
-                    ),
-                    child: SvgPicture.asset(
-                      "assets/icons/Heart Icon_2.svg",
-                      colorFilter: ColorFilter.mode(
-                          product.isFavourite
-                              ? const Color(0xFFFF4848)
-                              : const Color(0xFFDBDEE4),
-                          BlendMode.srcIn),
-                    ),
-                  ),
-                ),
+                )),
+                // InkWell(
+                //   borderRadius: BorderRadius.circular(50),
+                //   onTap: () {},
+                //   child: Container(
+                //     padding: const EdgeInsets.all(6),
+                //     height: 24,
+                //     width: 24,
+                //     decoration: BoxDecoration(
+                //       color: product.isFavourite
+                //           ? Colors.green.withOpacity(0.4)
+                //           : kSecondaryColor.withOpacity(0.1),
+                //       shape: BoxShape.circle,
+                //     ),
+                //     child: SvgPicture.asset(
+                //       "assets/icons/Heart Icon_2.svg",
+                //       colorFilter: ColorFilter.mode(
+                //           product.isFavourite
+                //               ? Colors.green
+                //               : const Color(0xFFDBDEE4),
+                //           BlendMode.srcIn),
+                //     ),
+                //   ),
+                // ),
               ],
             )
           ],
@@ -85,3 +93,11 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
+  // Text(
+  //                 formatCurrency(product.price),
+  //                 style: const TextStyle(
+  //                   fontSize: 14,
+  //                   fontWeight: FontWeight.w600,
+  //                   color: kPrimaryColor,
+  //                 ),
+  //               ),

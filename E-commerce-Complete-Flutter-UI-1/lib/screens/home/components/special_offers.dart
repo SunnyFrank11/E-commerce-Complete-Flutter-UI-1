@@ -81,10 +81,11 @@ class SpecialOfferCard extends StatelessWidget {
         onTap: press,
         child: SizedBox(
           width: 242,
-          height: 100,
+          height: 150,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Stack(
+              fit: StackFit.expand,
               children: [
                 Image.asset(
                   image,

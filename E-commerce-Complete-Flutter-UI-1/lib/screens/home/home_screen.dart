@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/home/components/categories.dart';
 
+import 'components/best_selling_products.dart';
 import 'components/discount_banner.dart';
 import 'components/home_header.dart';
-import 'components/popular_product.dart';
 import 'components/special_offers.dart';
 
 class HomeScreen extends StatelessWidget {
