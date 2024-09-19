@@ -28,17 +28,25 @@ class RecommendedProducts extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
-                image: "assets/images/Image Banner 2.png",
-                category: "Smartphone",
-                numOfBrands: 18,
+                image: "assets/images/tv.jpg",
+                category: "SmartTV",
+                numOfBrands: 3,
                 press: () {
                   Navigator.pushNamed(context, ProductsScreen.routeName);
                 },
               ),
               SpecialOfferCard(
-                image: "assets/images/Image Banner 3.png",
+                image: "assets/images/redbottom.jpg",
                 category: "Fashion",
-                numOfBrands: 24,
+                numOfBrands: 3,
+                press: () {
+                  Navigator.pushNamed(context, ProductsScreen.routeName);
+                },
+              ),
+              SpecialOfferCard(
+                image: "assets/images/laptop.jpg",
+                category: "Laptops",
+                numOfBrands: 4,
                 press: () {
                   Navigator.pushNamed(context, ProductsScreen.routeName);
                 },
@@ -203,7 +211,16 @@ class HotDealCard extends StatelessWidget {
                 ],
               ),
               decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(.7),
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.transparent,
+                      Colors.black38,
+                      Colors.black87,
+                      Colors.black,
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(18),
                       bottomRight: Radius.circular(18))),

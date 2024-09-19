@@ -41,7 +41,8 @@ class BestSellingProducts extends StatelessWidget {
                           context,
                           DetailsScreen.routeName,
                           arguments: ProductDetailsArguments(
-                              product: demoProducts[index]),
+                            product: demoProducts[index],
+                          ),
                         ),
                       ),
                     );
